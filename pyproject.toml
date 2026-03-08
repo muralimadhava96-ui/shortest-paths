@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "shortest-paths"
+version = "0.1.0"
+description = "Collection of shortest-path algorithms in Python"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [
+  { name = "Nexus Contributors" }
+]
+keywords = ["graph", "shortest-path", "dijkstra", "a-star", "bellman-ford", "floyd-warshall", "johnson"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

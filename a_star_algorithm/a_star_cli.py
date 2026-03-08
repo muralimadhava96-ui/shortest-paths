@@ -2,7 +2,7 @@
 import argparse
 import json
 import sys
-from typing import Dict, List, Tuple, Any, Optional
+from typing import Any, Dict, List, Tuple
 
 # Ensure parent directory is on sys.path when running tests directly
 import os
@@ -11,7 +11,11 @@ root = os.path.abspath(os.path.join(here, os.pardir))
 if root not in sys.path:
     sys.path.insert(0, root)
 
-from a_star import a_star
+src = os.path.join(root, "src")
+if src not in sys.path:
+    sys.path.insert(0, src)
+
+from shortest_paths.a_star import a_star
 
 def read_graph_json(path: str) -> Dict[Any, List[Tuple[Any, float]]]:
     with open(path, 'r', encoding='utf-8') as f:
@@ -41,8 +45,12 @@ def main():
     p.add_argument('graph_file', help='Path to graph file (JSON format)')
     p.add_argument('start_node', help='Start node')
     p.add_argument('goal_node', help='Goal node')
-    p.add_argument('--heuristic_mode', default='zero', choices=['zero'],
-                   help='Heuristic mode to use. Currently only 'zero' (Dijkstra-like) is supported.')
+    p.add_argument(
+        "--heuristic_mode",
+        default="zero",
+        choices=["zero"],
+        help="Heuristic mode to use. Currently only 'zero' is supported.",
+    )
 
     args = p.parse_args()
 

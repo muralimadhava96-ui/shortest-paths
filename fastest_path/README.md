@@ -10,10 +10,10 @@ Run the example:
 python3 example.py
 ```
 
-Run unit tests:
+Run project tests:
 
 ```bash
-python3 -m unittest discover -v
+python3 -m pytest -q
 ```
 
 Command-line interface:
@@ -33,6 +33,7 @@ python3 dijkstra_cli.py --file graph.edgelist --format edgelist --source s --tar
 ```
 
 The CLI prints distances or a specific path when `--target` is given. Use `--print-all` to list distances to all nodes.
+This module is kept for backward compatibility and delegates to `src/shortest_paths`.
 
 API:
 

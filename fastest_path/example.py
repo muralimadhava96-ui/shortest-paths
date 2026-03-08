@@ -1,4 +1,13 @@
-from dijkstra import dijkstra, reconstruct_path
+import os
+import sys
+
+here = os.path.dirname(os.path.abspath(__file__))
+root = os.path.abspath(os.path.join(here, os.pardir))
+src = os.path.join(root, "src")
+if src not in sys.path:
+    sys.path.insert(0, src)
+
+from shortest_paths.dijkstra import dijkstra, reconstruct_path
 
 
 def main():

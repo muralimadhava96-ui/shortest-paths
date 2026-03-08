@@ -1,10 +1,17 @@
 #!/usr/bin/env python3
 import argparse
 import json
+import os
 import sys
-from typing import Dict, List, Tuple, Any
+from typing import Any, Dict, List, Tuple
 
-from dijkstra import dijkstra, reconstruct_path
+here = os.path.dirname(os.path.abspath(__file__))
+root = os.path.abspath(os.path.join(here, os.pardir))
+src = os.path.join(root, "src")
+if src not in sys.path:
+    sys.path.insert(0, src)
+
+from shortest_paths.dijkstra import dijkstra, reconstruct_path
 
 
 def read_graph_json(path: str) -> Dict[Any, List[Tuple[Any, float]]]:
@@ -76,7 +83,7 @@ def main():
         if dist.get(args.target, float('inf')) == float('inf'):
             print(f'No path from {args.source} to {args.target}', file=sys.stderr)
             sys.exit(2)
-        path = reconstruct_path(prev, args.target)
+        path = reconstruct_path(prev, args.target, args.source)
         print('distance:', dist[args.target])
         print('path: ' + ' -> '.join(path))
         return
