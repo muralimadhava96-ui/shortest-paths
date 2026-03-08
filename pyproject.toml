@@ -17,6 +17,9 @@ keywords = ["graph", "shortest-path", "dijkstra", "a-star", "bellman-ford", "flo
 [project.optional-dependencies]
 dev = ["pytest>=8.0"]
 
+[project.scripts]
+shortest-paths = "shortest_paths.cli:main"
+
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 pythonpath = ["src"]

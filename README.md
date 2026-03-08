@@ -40,6 +40,16 @@ pip install -e .[dev]
 pytest
 ```
 
+## CLI
+```bash
+python -m shortest_paths.cli dijkstra --graph graph.json --source A --target D
+python -m shortest_paths.cli bellman-ford --graph graph.json --source A --target D
+python -m shortest_paths.cli bfs --graph graph_unweighted.json --source A --target F
+python -m shortest_paths.cli johnson --graph graph.json
+```
+
+Detailed examples: `docs/USAGE.md`.
+
 ## Usage example
 ```python
 from shortest_paths import dijkstra, bellman_ford, johnson
