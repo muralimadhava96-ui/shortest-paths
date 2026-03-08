@@ -9,6 +9,10 @@ Python implementations of shortest-path algorithms with tests and CLI examples.
 - Bellman-Ford (single-source, supports negative weights)
 - Johnson (all-pairs for sparse graphs, supports negatives without negative cycles)
 - BFS shortest path (unweighted graphs)
+- 0-1 BFS (single-source for weights in {0, 1})
+- DAG shortest path (single-source on directed acyclic graphs)
+- Bidirectional Dijkstra (source-target for non-negative weighted graphs)
+- Yen's K-shortest loopless paths (multiple alternatives)
 
 ## Project structure
 ```text
@@ -46,6 +50,10 @@ python -m shortest_paths.cli dijkstra --graph graph.json --source A --target D
 python -m shortest_paths.cli bellman-ford --graph graph.json --source A --target D
 python -m shortest_paths.cli bfs --graph graph_unweighted.json --source A --target F
 python -m shortest_paths.cli johnson --graph graph.json
+python -m shortest_paths.cli zero-one-bfs --graph graph01.json --source A --target D
+python -m shortest_paths.cli dag --graph dag.json --source S --target T
+python -m shortest_paths.cli bidirectional-dijkstra --graph graph.json --source A --target D
+python -m shortest_paths.cli yen-k --graph graph.json --source A --target D --k 3
 ```
 
 Detailed examples: `docs/USAGE.md`.
